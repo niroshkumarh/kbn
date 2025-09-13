@@ -20,17 +20,25 @@ body.loading { overflow: hidden; }
 
 /* Campus Hero Section */
 .campus-hero-section {
-    position: relative;
-    width: 100%;
-    height: 100vh;
-    min-height: 600px;
+    padding: 60px 20px;
+    background: var(--light-bg);
+}
+
+.campus-hero-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    gap: 40px;
+    align-items: center;
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
     overflow: hidden;
 }
 
 .campus-hero-image {
-    position: relative;
-    width: 100%;
-    height: 100%;
+    flex: 1;
+    min-height: 400px;
 }
 
 .campus-hero-image img {
@@ -41,54 +49,35 @@ body.loading { overflow: hidden; }
     display: block;
 }
 
-.campus-hero-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: linear-gradient(135deg, rgba(30, 40, 66, 0.8) 0%, rgba(45, 58, 95, 0.6) 50%, rgba(30, 40, 66, 0.9) 100%);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 60px 20px;
-}
-
 .campus-hero-content {
-    max-width: 1200px;
-    width: 100%;
-    text-align: center;
-    color: white;
+    flex: 1;
+    padding: 40px;
+    background: white;
 }
 
-.campus-hero-text h1 {
-    font-size: 3.5rem;
-    font-weight: 800;
-    margin-bottom: 30px;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-    letter-spacing: -1px;
-    line-height: 1.1;
+.campus-hero-text h2 {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    color: var(--primary-color);
+    line-height: 1.2;
 }
 
 .campus-hero-text p {
-    font-size: 1.2rem;
-    line-height: 1.8;
-    margin-bottom: 25px;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
-    max-width: 1000px;
-    margin-left: auto;
-    margin-right: auto;
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    color: var(--text-color);
 }
 
 .campus-hero-text strong {
     color: var(--secondary-color);
-    font-weight: 700;
+    font-weight: 600;
 }
 
 .campus-hero-text p:last-child {
     margin-bottom: 0;
-    font-size: 1.1rem;
-    font-weight: 500;
+    font-size: 0.95rem;
 }
 
 /* Campus hero animations */
@@ -103,13 +92,13 @@ body.loading { overflow: hidden; }
     transform: translateY(0);
 }
 
-.campus-hero-text h1 {
+.campus-hero-text h2 {
     opacity: 0;
     transform: translateY(20px);
     transition: all 0.8s ease-out 0.2s;
 }
 
-.campus-hero-section.animate-in .campus-hero-text h1 {
+.campus-hero-section.animate-in .campus-hero-text h2 {
     opacity: 1;
     transform: translateY(0);
 }
@@ -888,19 +877,28 @@ input[type='text']::placeholder {
     
     /* Campus hero tablet styles */
     .campus-hero-section {
-        height: 80vh;
-        min-height: 500px;
+        padding: 40px 15px;
     }
-    .campus-hero-text h1 {
-        font-size: 2.8rem;
-        margin-bottom: 25px;
+    .campus-hero-container {
+        flex-direction: column;
+        gap: 0;
+    }
+    .campus-hero-image {
+        min-height: 300px;
+    }
+    .campus-hero-content {
+        padding: 30px;
+    }
+    .campus-hero-text h2 {
+        font-size: 1.8rem;
+        margin-bottom: 18px;
     }
     .campus-hero-text p {
-        font-size: 1.1rem;
-        margin-bottom: 20px;
+        font-size: 0.95rem;
+        margin-bottom: 18px;
     }
     .campus-hero-text p:last-child {
-        font-size: 1rem;
+        font-size: 0.9rem;
     }
 }
 @media (max-width: 480px) {
@@ -1029,24 +1027,31 @@ input[type='text']::placeholder {
     
     /* Campus hero mobile styles */
     .campus-hero-section {
-        height: 70vh;
-        min-height: 400px;
+        padding: 30px 10px;
     }
-    .campus-hero-overlay {
-        padding: 40px 15px;
+    .campus-hero-container {
+        flex-direction: column;
+        gap: 0;
+        border-radius: 15px;
     }
-    .campus-hero-text h1 {
-        font-size: 2.2rem;
-        margin-bottom: 20px;
+    .campus-hero-image {
+        min-height: 250px;
+    }
+    .campus-hero-content {
+        padding: 25px 20px;
+    }
+    .campus-hero-text h2 {
+        font-size: 1.5rem;
+        margin-bottom: 15px;
         line-height: 1.2;
     }
     .campus-hero-text p {
-        font-size: 1rem;
-        line-height: 1.6;
-        margin-bottom: 18px;
+        font-size: 0.9rem;
+        line-height: 1.5;
+        margin-bottom: 15px;
     }
     .campus-hero-text p:last-child {
-        font-size: 0.95rem;
+        font-size: 0.85rem;
     }
 }
 </style>
@@ -1121,15 +1126,15 @@ input[type='text']::placeholder {
 <main>
     <!-- Campus Hero Section -->
     <section id="campus-hero" class="campus-hero-section">
-        <div class="campus-hero-image">
-            <img src="https://kumaraguru.in/img/about/CampusSky.jpg" alt="Kumaraguru Campus Sky View" />
-            <div class="campus-hero-overlay">
-                <div class="campus-hero-content">
-                    <div class="campus-hero-text">
-                        <h1>KUMARAGURU INSTITUTION'S</h1>
-                        <p>a multifaceted hub of learning instituted in 1984 with Kumaraguru College of Technology <strong>(KCT)</strong>, KCT Business School <strong>(KCT BS)</strong> in 2005, Kumaraguru Institute of Agriculture <strong>(KIA)</strong> in 2014 Kumaraguru College of Liberal Arts and Science <strong>(KCLAS)</strong> in 2018 and Kumaraguru School of Business <strong>(KSB)</strong> in 2022, is an integral part of Sakthi Group established by visionary statesman Arutchelvar Dr. N. Mahalingam.</p>
-                        <p>Commemorating <strong>41</strong> years of educational excellence, Kumaraguru Institutions remains committed to its founding vision of empowering conscientious young minds through transformative learning experience.</p>
-                    </div>
+        <div class="campus-hero-container">
+            <div class="campus-hero-image">
+                <img src="https://kumaraguru.in/img/about/CampusSky.jpg" alt="Kumaraguru Campus Sky View" />
+            </div>
+            <div class="campus-hero-content">
+                <div class="campus-hero-text">
+                    <h2>KUMARAGURU INSTITUTION'S</h2>
+                    <p>a multifaceted hub of learning instituted in 1984 with Kumaraguru College of Technology <strong>(KCT)</strong>, KCT Business School <strong>(KCT BS)</strong> in 2005, Kumaraguru Institute of Agriculture <strong>(KIA)</strong> in 2014 Kumaraguru College of Liberal Arts and Science <strong>(KCLAS)</strong> in 2018 and Kumaraguru School of Business <strong>(KSB)</strong> in 2022, is an integral part of Sakthi Group established by visionary statesman Arutchelvar Dr. N. Mahalingam.</p>
+                    <p>Commemorating <strong>41</strong> years of educational excellence, Kumaraguru Institutions remains committed to its founding vision of empowering conscientious young minds through transformative learning experience.</p>
                 </div>
             </div>
         </div>
